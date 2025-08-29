@@ -4,4 +4,5 @@ def main():
     energy = mass * pow(celerity, 2)
     print(energy)
 
-main ()
+
+main()

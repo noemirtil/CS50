@@ -3,4 +3,5 @@ def main():
 
     print(message.replace(" ", "..."))
 
+
 main()
