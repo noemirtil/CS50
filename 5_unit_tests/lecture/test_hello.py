@@ -11,4 +11,7 @@ def test_default():
 
 def test_argument():
     assert say_hello("David") == "Hello, David"
-    # assert say_hello() == "Check if pytest really works"
+
+
+def test_crash():
+    assert say_hello() == "Check if pytest really works"

@@ -21,3 +21,7 @@ def test_float_conversion():
     # approx allows the necessary approximation
     # that is always needed when dealing with floats
     # I can also adjust the tolerance with abs=0.1, abs=1e-5... as desired
+
+
+def test_crash():
+    assert square(0) == "Check if pytest really works"
