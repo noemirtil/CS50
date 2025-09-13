@@ -1,33 +1,39 @@
 #!/usr/bin/env python
 
+import sys
+
 
 def main():
 
-    fraction = input("Fraction: ").split("/")
-    print(fraction)
-    converted = convert(fraction)
-    if type(converted) == int:
-        print(gauge(converted))
-    else:
-        main()
-
-
-def convert(fraction):
     try:
-        expression = int(fraction[0]) / int(fraction[1])
-    except ValueError:
-        print("Must be integers")
-    except TypeError:
-        print("Must be integers TYPE")
-    except ZeroDivisionError:
-        print("Can't divide by zero")
+        string = input("Fraction: ")
+    except EOFError:
+        print("See you later!")
+        sys.exit(0)
     else:
-        if int(fraction[0]) < 0 or int(fraction[1]) < 0:
+        converted = convert(string)
+        print(gauge(converted))
+
+
+def convert(string):
+    list = string.split("/")
+    try:
+        fraction = int(list[0]) / int(list[1])
+    except ValueError:
+        raise ValueError("Must be integers")
+        # print("Must be integers")
+        # main()
+    except ZeroDivisionError:
+        raise ZeroDivisionError("Can't divide by zero")
+        # print("Can't divide by zero")
+        # main()
+    else:
+        if int(list[0]) < 0 or int(list[1]) < 0:
             raise ValueError("Values must be positive")
-        elif int(fraction[1]) < int(fraction[0]):
+        elif int(list[1]) < int(list[0]):
             raise ValueError("Divided can't be superior to divider")
         else:
-            return round(expression * 100)
+            return round(fraction * 100)
 
 
 def gauge(percentage):
