@@ -32,9 +32,9 @@ def count_lines(file):
         for line in read.readlines():
             if (
                 line.startswith("#")
-                or (line.startswith(" ") and "#" in line)
+                or (line[0] == " " and len(set(line.split("#")[0])) == 1)
                 or line == ("\n")
-                or line == (" \n")
+                or (line[0] == " " and len(set(line.split("\n")[0])) == 1)
             ):
                 pass
             else:

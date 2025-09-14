@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-"""Docstring for testing"""
-
 import csv
 
 name = input("What's your name? ")
