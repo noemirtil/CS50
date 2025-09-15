@@ -20,7 +20,7 @@ def main():
             for column in header:
                 dict[column] = []
                 with open(sys.argv[1]) as file:
-                    # Seems necessary to open it again, don't know why...
+                    # Necessary to open it every time unless result stored in a variable
                     reader = csv.DictReader(file)
                     for row in reader:
                         # Append each read row to each list (value) according to its column (key) name:
