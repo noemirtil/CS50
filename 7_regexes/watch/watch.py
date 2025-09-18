@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import re
-import sys
 
 
 def main():
@@ -9,7 +8,9 @@ def main():
 
 
 def parse(s):
-    if match := re.search(r"\"https?://(?:www.)?youtube.com/embed/(.+?)\"", s):
+    if match := re.search(
+        r"<iframe.+src=\"https?://(?:www.)?youtube\.com/embed/(.+?)\".*>.*</iframe>", s
+    ):
         return f"https://youtu.be/{match.group(1)}"
 
 
