@@ -10,7 +10,7 @@ def main():
     birthdate = input("Date of Birth: ").strip()
     number_minutes = count_minutes(check_birthdate(birthdate))
     p = inflect.engine()
-    words_minutes = p.number_to_words(number_minutes)
+    words_minutes = p.number_to_words(number_minutes, andword="")
     print(f"{words_minutes.capitalize()} minutes")
 
 
@@ -20,7 +20,7 @@ def check_birthdate(birthdate):
         return date(int(year), int(month), int(day))
     else:
         print("Invalid date")
-        sys.exit(0)
+        sys.exit(1)
 
 
 def count_minutes(birthdate):
