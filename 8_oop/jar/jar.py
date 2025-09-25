@@ -4,33 +4,31 @@ import sys
 
 
 class Jar:
-    def __init__(self, quantity=0, capacity=12):
+    def __init__(self, capacity=12):
         self.capacity = capacity
-        self.quantity = quantity
+        self.size = 0
 
     def __str__(self):
-        return self.quantity * "🍪"
+        return self._size * "🍪"
 
     def deposit(self, n):
-        if (self.quantity + n) > self.capacity:
+        if (self._size + n) > self._capacity:
             raise ValueError("The jar is full!")
             # print("The jar is full!")
             # sys.exit(0)
-        self.quantity += n
+        self._size += n
 
     def withdraw(self, n):
-        if (self.quantity - n) < 0:
+        if (self.size - n) < 0:
             raise ValueError("The jar is empty!")
             # print("The jar is empty!")
             # sys.exit(0)
-        self.quantity -= n
+        self._size -= n
 
-    # Getter:
     @property
     def capacity(self):
         return self._capacity
 
-    # Setter:
     @capacity.setter
     def capacity(self, capacity):
         if capacity < 0:
@@ -39,19 +37,17 @@ class Jar:
             # sys.exit(0)
         self._capacity = capacity
 
-    # Getter:
     @property
     def size(self):
-        return self._quantity
+        return self._size
 
-    # Setter:
     @size.setter
-    def size(self, quantity):
-        if quantity < 0:
-            raise ValueError("Not a non-negative quantity")
-            # print("Not a non-negative quantity")
+    def size(self, size):
+        if size < 0:
+            raise ValueError("Not a non-negative size")
+            # print("Not a non-negative size")
             # sys.exit(0)
-        self._quantity = quantity
+        self._size = size
 
 
 def main():

@@ -3,8 +3,8 @@
 
 class Student:
     def __init__(self, name, house):
-        self.name = name
-        self.house = house
+        self._name = name
+        self._house = house
 
     def __str__(self):
         return f"{self.name} from {self.house}"
