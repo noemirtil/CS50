@@ -6,9 +6,7 @@ def main():
 
 
 def yell(*words):
-    uppercased = map(str.upper, words)
-    # upper is a method of the str class. I don't use parenthesis
-    # at the end of upper because map will do it for every word
+    uppercased = [word.upper() for word in words]
     print(*uppercased)
 
 
