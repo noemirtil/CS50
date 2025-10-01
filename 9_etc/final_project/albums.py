@@ -5,9 +5,7 @@ import requests
 import sys
 
 
-def main():
-    search = input("Please type the name of a music artist: ").strip()
-
+def discography(search):
     # Retrieve the artist search data from iTunes
     search_data = requests.get(
         "https://itunes.apple.com/search?entity=album&limit=201&term=" + search
@@ -76,7 +74,3 @@ def main():
 {album["track_count"]} songs with an average of {minutes:.0f}min {seconds:.0f}sec per song
 -------------------------------------------"""
         )
-
-
-if __name__ == "__main__":
-    main()
