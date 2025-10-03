@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT "title") AS 'Episodes about data or Python' FROM "episodes" WHERE "topic" LIKE '%data%' OR '%python%';

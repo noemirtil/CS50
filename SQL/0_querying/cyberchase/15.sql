@@ -1,0 +1,1 @@
+SELECT SUBSTRING("air_date", 1, 4) AS 'Year', SUBSTRING("air_date", 6, 5) AS 'Month & day' FROM "episodes" ORDER BY "air_date" LIMIT 1;

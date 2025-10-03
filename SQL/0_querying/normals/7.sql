@@ -1,0 +1,1 @@
+SELECT ROUND(AVG("0m"), 2) FROM "normals" WHERE "latitude" BETWEEN '-1' AND '1';
