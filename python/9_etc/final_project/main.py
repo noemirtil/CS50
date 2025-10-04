@@ -10,47 +10,65 @@ from lyrics import get_lyrics
 
 
 def main():
-    year = input("Please type a year between 1946 and 2024: ")
-    print("\nRetrieving data...\n")
-    year_charts = get_charts(year)
-
     screen_clean()
-    print(
-        f"""
+    year = input(
+        """
+
+Please type a year between 1946 and 2024:
+
+=> """
+    )
+    try:
+        if 1945 < int(year) < 2025:
+            print("\nRetrieving data...\n")
+            year_charts = get_charts(year)
+
+            screen_clean()
+            print(
+                f"""
 
 ================== {year} TOP SONGS ==================
 
-       Pop charts:
-  1️⃣   {year_charts['song_1']}
-       by {year_charts['artist_1']}
+Pop charts:
+        {year_charts['song_1']}
+        by {year_charts['artist_1']}
 
-       R&B/Soul/Hip-Hop charts:
-  2️⃣   {year_charts['song_3']}
-       by {year_charts['artist_3']}
+R&B/Soul/Hip-Hop charts:
+        {year_charts['song_3']}
+        by {year_charts['artist_3']}
 
-       Country charts:
-  3️⃣   {year_charts['song_5']}
-       by {year_charts['artist_5']}
+Country charts:
+        {year_charts['song_5']}
+        by {year_charts['artist_5']}
 
+
+Here are some significant quotes from these songs:
 """
-    )
-    #     choice = input(
-    #         """Which one of these songs do you prefer?
+            )
 
-    # (type 1, 2, or 3): """
-    #     )
+            i = 1
+            while i < 7:
+                if (
+                    i in (1, 3, 5)
+                    and year_charts[f"artist_{i}"] != "Not found 🙃"
+                    and year_charts[f"song_{i}"] != "Not found 🙃"
+                ):
+                    try:
+                        get_lyrics(
+                            artist=year_charts[f"artist_{i}"],
+                            song=year_charts[f"song_{i}"],
+                        )
+                    except KeyError:
+                        print(
+                            f"\nCouldn't retrieve some {year} {i} data, please try again 🙃\n"
+                        )
+                i += 1
 
-    #     match choice:
-    #         case "1":
-    #             get_lyrics(artist=year_charts["artist_1"], song=year_charts["song_1"])
-    #         case "2":
-    #             get_lyrics(artist=year_charts["artist_3"], song=year_charts["song_3"])
-    #         case "3":
-    #             get_lyrics(artist=year_charts["artist_5"], song=year_charts["song_5"])
+        else:
+            main()
 
-    get_lyrics(artist=year_charts["artist_1"], song=year_charts["song_1"])
-    get_lyrics(artist=year_charts["artist_3"], song=year_charts["song_3"])
-    get_lyrics(artist=year_charts["artist_5"], song=year_charts["song_5"])
+    except ValueError:
+        main()
 
 
 def interface():
