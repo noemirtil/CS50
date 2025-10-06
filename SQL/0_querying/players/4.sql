@@ -1,0 +1,1 @@
+SELECT "first_name", "last_name" FROM "players" WHERE NOT "birth_country" IS 'USA' ORDER BY "first_name", "last_name";

@@ -48,9 +48,9 @@ def get_charts(y):
                     # ):
                     #     years[year][f"song_{i}"] = matches.group(1)
                     #     years[year][f"artist_{i}"] = matches.group(2)
-                    if not f"song_{i}" in years[year].keys():
+                    if not (f"song_{i}", f"artist_{i}") in years[year].keys():
                         years[year][f"song_{i}"] = "Not found 🙃"
-                    if not f"artist_{i}" in years[year].keys():
+                        # if not f"artist_{i}" in years[year].keys():
                         years[year][f"artist_{i}"] = "Not found 🙃"
                 i += 1
     return years[y]

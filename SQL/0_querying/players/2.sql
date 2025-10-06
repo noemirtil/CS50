@@ -1,0 +1,1 @@
+SELECT "bats" FROM "players" WHERE "first_name" is 'Babe' AND "last_name" is 'Ruth';

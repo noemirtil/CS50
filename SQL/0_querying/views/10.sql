@@ -1,0 +1,1 @@
+SELECT "english_title" AS 'English Title' FROM "views" WHERE "artist" = 'Hokusai' ORDER BY "print_number" DESC LIMIT 3;
